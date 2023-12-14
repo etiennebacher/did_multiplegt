@@ -26,5 +26,15 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R(>= 3.4.0)
-Imports: dplyr (>= 1.0.0), fixest (>= 0.6.0), plotrix, stringr, sampling, stats, parallel, assertthat
-Suggests: wooldridge
+Imports: 
+    dplyr (>= 1.0.0), 
+    fixest (>= 0.6.0), 
+    parallel, 
+    plotrix, 
+    sampling, 
+    stats, 
+    stringr
+Suggests: 
+    testthat (>= 3.0.0),
+    wooldridge
+Config/testthat/edition: 3
