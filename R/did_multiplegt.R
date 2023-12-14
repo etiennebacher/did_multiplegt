@@ -279,7 +279,7 @@ did_multiplegt_transform <- function(df, controls, trends_nonparam) {
   # canonicalize time to start from 0 and increase consecutively
   tdf <- df %>%
     group_by(.data$T) %>%
-    summarize(Tgroup = group_indices()) %>%
+    summarize(Tgroup = cur_group_id()) %>%
     select(.data$T, .data$Tgroup)
   df <- left_join(df, tdf, by = "T") %>%
     mutate(T = .data$Tgroup) %>%
@@ -305,7 +305,7 @@ did_multiplegt_transform <- function(df, controls, trends_nonparam) {
   var_cat_treatment <- sym(cat_treatment)
   tdf <- df %>%
     group_by(!!var_cat_treatment) %>%
-    summarize(Dgroup = group_indices()) %>%
+    summarize(Dgroup = cur_group_id()) %>%
     select(!!var_cat_treatment, .data$Dgroup)
   df <- left_join(df, tdf, by = cat_treatment)
 
@@ -335,7 +335,7 @@ did_multiplegt_transform <- function(df, controls, trends_nonparam) {
   if (trends_nonparam) {
     tdf <- df %>%
       group_by(.data$Vtrends, .data$Tfactor) %>%
-      summarize(VtrendsX = group_indices()) %>%
+      summarize(VtrendsX = cur_group_id()) %>%
       select(.data$Vtrends, .data$Tfactor, .data$VtrendsX)
     tdf$VtrendsX <- factor(tdf$VtrendsX)
 
