@@ -1,24 +1,27 @@
-#' did_multiplegt
+#' Difference-in-differences with multiple groups and times
 #'
-#' @param df the data frame for input
-#' @param Y the name of Y variable
-#' @param G the name of group variable
-#' @param T the name of time variable
-#' @param D the name of treatment variable
-#' @param controls the list of names of control variables, empty if not specified
-#' @param placebo the number of placebo estimators
-#' @param dynamic the number of dynamic estimators
-#' @param threshold_stable_treatment the threshold to mark a difference stable.
-#'                                   This option may be useful when the treatment is continuous, or takes a large number of values
-#' @param recat_treatment the name of treatment group recategorized. To use this parameter, append another column in the data frame
-#'                        which pools the values of the treatment together, and pass in the name of the column.
+#' @param df Dataset
+#' @param Y Outcome variable, character scalar.
+#' @param G Variable identifying each group, character scalar.
+#' @param T Variable identifying each period, character scalar.
+#' @param D Treatment variable, character scalar.
+#' @param controls Character vector indicating control variables.
+#' @param placebo Number of placebo estimators
+#' @param dynamic Number of dynamic estimators
+#' @param threshold_stable_treatment The threshold to mark a difference as "stable".
+#' This option may be useful when the treatment is continuous, or takes a large
+#' number of values.
+#' @param recat_treatment The name of treatment group recategorized. To use this
+#' parameter, append another column in the data frame which pools the values of
+#' the treatment together, and pass in the name of the column.
 #' @param trends_nonparam
 #' @param trends_lin
-#' @param brep the number of bootstrap replications to be used in the computation of estimators' standard errors
-#' @param cluster computes the standard errors of the estimators using a block bootstrap at the cluster level.
-#'                Only one clustering variable is allowed
-#' @covariance
-#' @average_effect
+#' @param brep Number of bootstrap replications to be used in the computation of
+#' estimators' standard errors.
+#' @param cluster Compute the standard errors of the estimators using a block
+#' bootstrap at the cluster level. Only one clustering variable is allowed.
+#' @param covariance
+#' @param average_effect
 #' @param parallel parallelly perform bootstrap
 #'
 #' @return did_multiplegt returns an object class that has the following values
